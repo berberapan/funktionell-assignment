@@ -12,18 +12,12 @@ val hierarchyMap = mapOf(
 
 fun getUnderlings(userInput: String): List<String> {
     val underlings = mutableListOf<String>()
-    fun innerGetUnderling(worker: String): List<String> {
-        if (worker !in hierarchyMap && worker != userInput) {
-            underlings.add(worker)
-            return underlings
-        }
-        else {
-            if (worker != userInput) underlings.add(worker)
-            hierarchyMap[worker]?.forEach { underling -> innerGetUnderling(underling) }
-            return underlings
-        }
+    fun innerGetUnderling(worker: String) {
+        if (worker != userInput) underlings.add(worker)
+        hierarchyMap[worker]?.forEach { underling -> innerGetUnderling(underling) }
     }
-    return innerGetUnderling(userInput)
+    innerGetUnderling(userInput)
+    return underlings
 }
 
 fun main() {

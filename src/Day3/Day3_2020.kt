@@ -4,6 +4,7 @@ import dataText
 
 val data = dataText("src/data/day3.txt")
 
+// original
 fun encounteredTrees(input: List<String>): Int {
     var counter = 0
     var position = 3
@@ -47,7 +48,21 @@ fun diffRoutesMulti(input: List<String>): Long {
     return multiValue
 }
 
+// Lösning https://old.reddit.com/r/adventofcode/comments/k5qsrk/2020_day_03_solutions/gehbjxl/
+
+fun List<String>.counter(right:Int, down: Int): Long {
+    var current = 0
+    return (down..<size step down).count{ row ->
+        current += right
+        this[row][current % this[row].length] == '#'
+    }.toLong()
+}
+fun trees1(input: List<String>) = input.counter(3, 1)
+fun trees2(input: List<String>) = listOf(1 to 1, 3 to 1, 5 to 1, 7 to 1, 1 to 2).map { input.counter(it.first, it.second) }.reduce { acc, trees -> acc * trees }
+
 fun main() {
     println("Solution to part 1: ${encounteredTrees(data)}")
     println("Solution to part 2: ${diffRoutesMulti(data)}")
+    println(trees1(data))
+    println(trees2(data))
 }

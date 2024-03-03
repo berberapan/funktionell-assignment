@@ -11,3 +11,7 @@ fun dataText(filePath: String): List<String> {
     File(filePath).forEachLine { dataList.add(it) }
     return dataList
 }
+
+fun dataFull(filePath: String): String {
+    return File(filePath).readText()
+}

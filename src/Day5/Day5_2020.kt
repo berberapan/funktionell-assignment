@@ -3,6 +3,8 @@ package Day5
 import dataText
 
 val data = dataText("src/data/day5.txt")
+
+// original
 fun mid(lo: Int, hi: Int) = lo + (hi - lo) / 2
 
 fun findID(input: String): Int {
@@ -42,7 +44,18 @@ fun findSeat(input: List<String>): Int {
     return -1
 }
 
+// Lösning inspirerad av https://github.com/kotlin-hands-on/advent-of-code-2020/blob/master/src/day05/day5.kt
+
+fun findID2(input: String) = input.replace("F", "0").replace("B", "1")
+    .replace("L", "0").replace("R", "1").toInt(radix = 2)
+
+fun findHighest2(input: List<String>) = input.maxOf { findID2(it) }
+
+fun findSeat2(input: List<String>) = ((findLowestID(data)..findHighest2(data)).toSet() - input.map { findID2(it) }.toSet()).first()
 fun main() {
     println("Solution to part 1: ${findHighestID(data)}")
     println("Solution to part 2: ${findSeat(data)}")
+
+    println(findHighest2(data))
+    println(findSeat2(data))
 }

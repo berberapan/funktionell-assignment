@@ -1,9 +1,11 @@
 package Day4
 
 import dataText
+import dataFull
 
 val data = dataText("src/data/day4.txt")
 
+// original
 fun passportCheck(input: List<String>): Int {
     var count = 0
     var passportInfo = ""
@@ -89,7 +91,14 @@ fun passportCheck2(input: List<String>): Int {
     return count
 }
 
+//Lösning inspirerad av https://old.reddit.com/r/adventofcode/comments/k6e8sw/2020_day_04_solutions/gen3xx1/
+val data2 = dataFull("src/data/day4.txt").split("\r\n\r\n")
+val requiredInfo = listOf("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid")
+fun checkPP() = data2.count { pp -> requiredInfo.all { pp.contains(it) } }
+
 fun main() {
     println("Solution part 1: ${passportCheck(data)}")
     println("Solution part 2: ${passportCheck2(data)}")
+
+    println(checkPP())
 }
