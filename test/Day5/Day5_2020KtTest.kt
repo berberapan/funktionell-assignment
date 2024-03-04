@@ -18,10 +18,14 @@ class Day5_2020KtTest {
         assertEquals(119, findID("FFFBBBFRRR"))
         assertEquals(820, findID("BBFFBBFRLL"))
 
+        assertEquals(567, findID2("BFFFBBFRRR"))
+        assertEquals(119, findID2("FFFBBBFRRR"))
+        assertEquals(820, findID2("BBFFBBFRLL"))
     }
     @Test
     fun findHighestTest() {
         val testValues = listOf("BFFFBBFRRR", "FFFBBBFRRR", "BBFFBBFRLL")
         assertEquals(820, findHighestID(testValues))
+        assertEquals(820, findHighest2(testValues))
     }
 }
