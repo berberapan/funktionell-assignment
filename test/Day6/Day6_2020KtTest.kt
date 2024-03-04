@@ -16,5 +16,6 @@ class Day6_2020KtTest {
     @Test
     fun sumEveryoneYesTest() {
         assertEquals(6, sumEveryoneYes(testValues))
+        assertEquals(6, sumEveryoneYes2(testValues))
     }
 }

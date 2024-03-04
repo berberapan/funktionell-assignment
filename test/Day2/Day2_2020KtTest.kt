@@ -13,10 +13,12 @@ class Day2_2020KtTest {
     @Test
     fun amountCorrectPasswords1() {
         assertEquals(2, amountCorrectPasswords1(testData))
+        assertEquals(2, amountValid(testData))
     }
 
     @Test
     fun amountCorrectPasswords2() {
         assertEquals(1, amountCorrectPasswords2(testData))
+        assertEquals(1, amountValid2(testData))
     }
 }

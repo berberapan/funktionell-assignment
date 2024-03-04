@@ -13,10 +13,12 @@ class Day1_2020KtTest {
     @Test
     fun checkSum1Test() {
         assertEquals(514579, checkSum1(testValues))
+        assertEquals(514579, checksum3(testValues))
     }
 
     @Test
     fun checkSum2Test() {
         assertEquals(241861950, checkSum2(testValues))
+        assertEquals(241861950, checksum4(testValues))
     }
 }

@@ -22,10 +22,12 @@ class Day3_2020KtTest {
     @Test
     fun encounteredTreesTest() {
         assertEquals(7, encounteredTrees(testData))
+        assertEquals(7, trees1(testData))
     }
 
     @Test
     fun multiTest() {
         assertEquals(336, diffRoutesMulti(testData))
+        assertEquals(336, trees2(testData))
     }
 }
